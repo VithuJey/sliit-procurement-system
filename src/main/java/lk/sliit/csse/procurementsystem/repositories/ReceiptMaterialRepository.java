@@ -24,6 +24,6 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Vithu
  */
 @Transactional
-public interface ReceiptItemRepository <T extends ReceiptMaterial> extends JpaRepository<T, Long> {
-
+public interface ReceiptMaterialRepository <T extends ReceiptMaterial> extends JpaRepository<T, Long>{
+    
 }

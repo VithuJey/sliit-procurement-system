@@ -15,13 +15,16 @@
 
         <p:panel style="width: 400px; height: 200px" >
             <h:panelGrid columns="2" cellpadding="2">
-                <h:outputText value="Item Name: " />
-                <p:inputText id="add-receipt-item-name" value="#{goodReceiptController.goodReceipt.orderRefer}" />
-
-                <h:outputText value="Quantity: " />
-                <p:inputText id="add-receipt-item-quantity" value="#{goodReceiptController.goodReceipt.deliverDate}" />
-                                
-                <p:commandButton id="submit-receipt" value="Insert" ajax="false" action="#{goodReceiptController.addNewReceipt()}" />
+                
+                <p:dataTable var="receiptMaterial" style="width: 750px" value="#{goodReceiptController.getReceiptItem()}">
+                    <p:column headerText="Item Name">
+                        <h:outputText value="#{goodReceiptController.receiptMaterial.itemName}" />
+                    </p:column>
+                    <p:column headerText="Quantity">
+                        <h:outputText id="itemName" value="#{goodReceiptController.receiptMaterial.qty}" />
+                    </p:column>
+                </p:dataTable>>
+                
             </h:panelGrid>
         </p:panel>
 

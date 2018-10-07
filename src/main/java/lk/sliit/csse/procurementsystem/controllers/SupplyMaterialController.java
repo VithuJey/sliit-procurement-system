@@ -15,37 +15,33 @@
  */
 package lk.sliit.csse.procurementsystem.controllers;
 
-
 import java.io.IOException;
-import javax.faces.event.ActionEvent;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 import lk.sliit.csse.procurementsystem.models.SupplyMaterial;
-import lk.sliit.csse.procurementsystem.repositories.ReceiptItemRepository;
+import lk.sliit.csse.procurementsystem.repositories.ReceiptMaterialRepository;
+import lk.sliit.csse.procurementsystem.repositories.SupplyMaterialRepository;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
-import lk.sliit.csse.procurementsystem.repositories.SupplyMaterialRepository;
 
 /**
  *
  * @author Vithu
  */
-
 @Data
 @Named
-public class SupplyItemListController {
-    
+public class SupplyMaterialController {
+ 
     public SupplyMaterial supplyMaterial = new SupplyMaterial();
     
     @Autowired
     private SupplyMaterialRepository supplyMaterialRepository;
-    
-    @Autowired
-    private ReceiptItemRepository receiptItemRepository;
+   
     
 
     public void addNewItem() {
@@ -81,4 +77,5 @@ public class SupplyItemListController {
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary,  null);
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
+    
 }

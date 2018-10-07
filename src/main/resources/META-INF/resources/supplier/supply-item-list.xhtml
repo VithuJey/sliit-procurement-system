@@ -18,7 +18,7 @@
                 <ui:include id="addItem" src="add-item.xhtml" />
 
                 <h:form id="myForm">
-                <p:dataTable var="itemList" style="width: 750px" value="#{supplyItemListController.getItem()}">
+                <p:dataTable var="itemList" style="width: 750px" value="#{supplyMaterialController.getItem()}">
                     <p:column headerText="ID">
                         <h:outputText value="#{supplyMaterial.itemId}" />
                     </p:column>
@@ -37,16 +37,16 @@
                     
                     <p:column headerText="Update">
                         <p:growl id="growl2" life="2000" />
-                        <p:commandButton value="Update" actionListener="#{supplyItemListController.updateItem(itemList.itemId)}" onclick="PF('updateItem').show();" />
+                        <p:commandButton value="Update" actionListener="#{supplyMaterialController.updateItem(itemList.itemId)}" onclick="PF('updateItem').show();" />
                         <ui:include id="updateItem" src="update-item.xhtml" />
                     </p:column>
                     
                     <p:column headerText="Delete">
                         <p:growl id="growl" life="2000" />
-                        <p:commandButton value="Delete" id="ajax" update="growl" actionListener="#{supplyItemListController.deleteItem(itemList.itemId)}" />
+                        <p:commandButton value="Delete" id="ajax" update="growl" actionListener="#{supplyMaterialController.deleteItem(itemList.itemId)}" />
                          
 <!--                            <p:commandButton value="Delete" type="button" id="ajax"update="growl"
-                                             actionListener="#{supplyItemListController.buttonAction(actionEvent)}" icon="ui-icon-trash" />-->
+                                             actionListener="#{supplyMaterialController.buttonAction(actionEvent)}" icon="ui-icon-trash" />-->
                     </p:column>
                 </p:dataTable>
                 </h:form>
