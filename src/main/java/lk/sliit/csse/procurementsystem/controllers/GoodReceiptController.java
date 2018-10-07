@@ -44,7 +44,6 @@ public class GoodReceiptController {
     @Autowired
     private GoodReceiptRepository goodReceiptRepository;
     
-     
     @Autowired
     private ReceiptMaterialRepository receiptMaterialRepository;
 

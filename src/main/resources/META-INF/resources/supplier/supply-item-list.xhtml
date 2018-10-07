@@ -18,7 +18,7 @@
                 <ui:include id="addItem" src="add-item.xhtml" />
 
                 <h:form id="myForm">
-                <p:dataTable var="itemList" style="width: 750px" value="#{supplyMaterialController.getItem()}">
+                <p:dataTable var="supplyMaterial" style="width: 750px" value="#{supplyMaterialController.getItem()}">
                     <p:column headerText="ID">
                         <h:outputText value="#{supplyMaterial.itemId}" />
                     </p:column>
@@ -26,10 +26,10 @@
                         <h:outputText id="itemName" value="#{supplyMaterial.name}" />
                     </p:column>
                     <p:column headerText="Category">
-                        <h:outputText value="#{supplyMaterial.category}" />
+                        <h:outputText id="category" value="#{supplyMaterial.category}" />
                     </p:column>
                     <p:column headerText="Description">
-                        <h:outputText value="#{supplyMaterial.description}" />
+                        <h:outputText id="descripion" value="#{supplyMaterial.description}" />
                     </p:column>
                     <p:column headerText="Price">
                         <h:outputText value="#{supplyMaterial.price}" />
@@ -37,13 +37,13 @@
                     
                     <p:column headerText="Update">
                         <p:growl id="growl2" life="2000" />
-                        <p:commandButton value="Update" actionListener="#{supplyMaterialController.updateItem(itemList.itemId)}" onclick="PF('updateItem').show();" />
+                        <p:commandButton value="Update" actionListener="#{supplyMaterialController.updateItem(supplyMaterial.itemId)}" onclick="PF('updateItem').show();" />
                         <ui:include id="updateItem" src="update-item.xhtml" />
                     </p:column>
                     
                     <p:column headerText="Delete">
                         <p:growl id="growl" life="2000" />
-                        <p:commandButton value="Delete" id="ajax" update="growl" actionListener="#{supplyMaterialController.deleteItem(itemList.itemId)}" />
+                        <p:commandButton value="Delete" id="ajax" update="growl" actionListener="#{supplyMaterialController.deleteItem(supplyMaterial.itemId)}" />
                          
 <!--                            <p:commandButton value="Delete" type="button" id="ajax"update="growl"
                                              actionListener="#{supplyMaterialController.buttonAction(actionEvent)}" icon="ui-icon-trash" />-->

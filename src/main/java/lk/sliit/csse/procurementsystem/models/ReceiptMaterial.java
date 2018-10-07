@@ -15,6 +15,8 @@
  */
 package lk.sliit.csse.procurementsystem.models;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -34,7 +36,9 @@ public class ReceiptMaterial {
     private long receiptId;
     private String itemName;
     private int qty;
-
+    
+    
+    
     public Long getId() {
         return id;
     }
