@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright 2018 JoinFaces.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+-->
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui = "http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:sec="http://www.springframework.org/security/tags">
+<head>
+    <title>Title</title>
+</head>
+<body>
+<p:dialog header="Add Orders" widgetVar="addOrdersModal" showEffect="fade" hideEffect="fade" >
+    <h:form id="add-order-form">
+        
+
+              <p:panel >
+            <h:panelGrid columns="2" cellpadding="4">
+                  <h:outputText value="Order Request Id: " />
+                <p:inputText id="add-order-req-order-no" value="OR#{siteManagerController.getNextReqOrderNo()}" readonly="true"/>
+
+                <h:outputText value="Item name: " />
+                <p:autoComplete id="add-item-to-order-item-name" value="#{siteManagerController.itemList.itemId}" completeMethod="#{siteManagerController.completeText}" placeholder="Item Name" />
+                <h:outputText value="Quantity: " />
+                <p:inputText id="add-item-to-order-item-qty" value="#{siteManagerController.itemList.qty}" />
+
+                <p:commandButton id="add-item-to-order-submit" value="Add Items"  update="itemListTable" action="#{siteManagerController.addItemForOrder}" />
+                            
+            </h:panelGrid>
+        </p:panel>
+  <p:panel >
+            <h:panelGrid columns="2" cellpadding="4">
+                
+              
+                <h:outputText value="endDate: " />
+                <p:calendar id="add-order-end-date" value="#{siteManagerController.materialRequest.endDate}" mode="popup" mindate="#{siteManagerController.getTodayDate()}"/>
+
+                <p:commandButton id="add-order-submit" value="Add Order" update="orderTable" oncomplete="PF('addOrdersModal').hide()" action="#{siteManagerController.addOrder}" />
+            </h:panelGrid>
+                    </p:panel>
+        
+        
+    </h:form>
+</p:dialog>
+</body>
+</html>

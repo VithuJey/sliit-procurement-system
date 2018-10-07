@@ -13,11 +13,11 @@
 <body>
 <ui:composition template="../template.xhtml">
     <ui:define name="content">
-        <h1> Employees </h1>
+        <h1> Procurement Staffs </h1>
 
         <p:commandButton value="Add Site Manager" type="button" onclick="PF('addProcurementStaffModal').show();" />
-        <ui:include src="add_employee.xhtml" />
-        <p:dataTable var="procurementStaff" value="#{managementController.getProcurementStaffs()}">
+        <ui:include src="modals/add_procurement_staff_modal.xhtml" />
+        <p:dataTable id="procurementStaffTable" var="procurementStaff" value="#{managementController.getProcurementStaffs()}">
             <p:column headerText="Id">
                 <h:outputText value="#{procurementStaff.id}" />
             </p:column>
@@ -32,6 +32,11 @@
 
             <p:column headerText="Last Name">
                 <h:outputText value="#{procurementStaff.lastName}" />
+            </p:column>
+            <p:column>
+                <h:form>
+                    <p:commandButton styleClass="proc-del-btn" value="Delete" ajax="false" action="#{managementController.deleteProcurementStaff(procurementStaff)}" />
+                </h:form>
             </p:column>
         </p:dataTable>
     </ui:define>

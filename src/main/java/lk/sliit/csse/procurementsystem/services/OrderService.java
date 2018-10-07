@@ -13,16 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package lk.sliit.csse.procurementsystem.repositories;
+package lk.sliit.csse.procurementsystem.services;
 
-import lk.sliit.csse.procurementsystem.models.User;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.transaction.annotation.Transactional;
-import lk.sliit.csse.procurementsystem.models.GoodReceipt;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import lk.sliit.csse.procurementsystem.repositories.MaterialRequestRepository;
 
-
-@Transactional
-public interface GoodReceiptRepository  <T extends GoodReceipt> extends JpaRepository<T, Long> {
+/**
+ *
+ * @author Marjan
+ */
+@Service("orderService")
+public class OrderService {
+    @Autowired
+    private MaterialRequestRepository materialRequestRepository;
 }

@@ -15,14 +15,15 @@
  */
 package lk.sliit.csse.procurementsystem.repositories;
 
-import lk.sliit.csse.procurementsystem.models.User;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.transaction.annotation.Transactional;
-import lk.sliit.csse.procurementsystem.models.GoodReceipt;
+import lk.sliit.csse.procurementsystem.models.Site;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
-
+/**
+ *
+ * @author Kiru
+ */
 @Transactional
-public interface GoodReceiptRepository  <T extends GoodReceipt> extends JpaRepository<T, Long> {
+public interface SiteRepository extends JpaRepository<Site, Long> {
+    
 }
